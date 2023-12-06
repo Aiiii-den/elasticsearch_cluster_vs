@@ -1,0 +1,1 @@
+docker run --name elasticsearchEvelina --net elastic -p 9200:9200 -p 9300:9300 -e "cluster.name=aiiii-dens_cluster" -e "node.name=Evelina" -e "discovery.type=multi-node" docker.elastic.co/elasticsearch/elasticsearch:8.11.1

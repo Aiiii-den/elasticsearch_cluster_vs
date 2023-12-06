@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  elasticsearchVS:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.1
+    container_name: elasticsearchDockerCompose
+    environment:
+      - node.name=${NODE_NAME}
+      - cluster.name=${CLUSTER_NAME}
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - discovery.type=multi-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge
